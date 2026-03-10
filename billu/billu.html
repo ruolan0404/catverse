@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+<title>Billu's Kitchen</title>
+<link rel="stylesheet" href="billu.css"/>
+</head>
+<body>
+<div id="wrap">
+  <div id="titlebar">
+    <h1 id="titleh1">🐱 BILLU'S KITCHEN</h1>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <div id="scores">DISHES:<span id="sc_dish">0</span>&nbsp;FACTS:<span id="sc_fact">0</span></div>
+      <button id="dntoggle" onclick="toggleDayNight()" style="
+        font-family:'Press Start 2P',monospace;font-size:.28rem;
+        background:#1a1a2e;color:#ffff99;border:2px solid #4a4a6a;
+        padding:3px 7px;cursor:pointer;box-shadow:2px 2px 0 #000;
+      ">🌙 NIGHT</button>
+    </div>
+  </div>
+  <canvas id="gc"></canvas>
+  <div id="bubwrap"><div id="bubtxt">CHOOSE A DISH TO START COOKING!</div></div>
+  <div id="progwrap">
+    <div id="proglbl">PROGRESS</div>
+    <div id="progbar"><div id="progfill"></div></div>
+  </div>
+  <div id="tray"></div>
+  <div id="btns">
+    <button class="pbtn" id="cookbtn" onclick="doCook()" disabled>🥄 COOK</button>
+    <button class="pbtn" id="servebtn" onclick="doServe()">🍽 SERVE!</button>
+    <button class="pbtn" id="backbtn" onclick="goBack()">← BACK</button>
+  </div>
+</div>
+
+<!-- DISH SELECT -->
+<div id="dishscreen">
+  <div class="dtitle">🐱 BILLU'S KITCHEN</div>
+  <div class="dsub">CHOOSE WHAT TO COOK TODAY!</div>
+  <div id="dishgrid">
+    <button class="dbtn" onclick="pickDish('biryani')">🍚<br>BIRYANI</button>
+    <button class="dbtn" onclick="pickDish('nihari')">🍖<br>NIHARI</button>
+    <button class="dbtn" onclick="pickDish('halwapuri')">🫓<br>HALWA PURI</button>
+    <button class="dbtn" onclick="pickDish('karahi')">🥘<br>KARAHI</button>
+    <button class="dbtn" onclick="pickDish('bhindi')">🫑<br>BHINDI FRY</button>
+    <button class="dbtn" onclick="pickDish('mandi')">🍗<br>MANDI</button>
+  </div>
+  <div class="dstats">DISHES COOKED: <span id="ds_d">0</span> &nbsp;|&nbsp; FACTS LEARNED: <span id="ds_f">0</span></div>
+</div>
+
+<!-- SERVE SCREEN -->
+<div id="servescreen">
+  <div id="servetitle">🍽 DISH SERVED!</div>
+  <canvas id="platecanvas" width="160" height="120"></canvas>
+  <div class="serveinfo">DISH <span id="dishnum">#1</span> COMPLETE!<br>MASHA'ALLAH! 🎉<br>BILLU IS SO PROUD 🐱</div>
+  <button id="cookagain" onclick="closeServe()">▶ COOK AGAIN!</button>
+</div>
+
+<script src="billu.js"></script>
+</body>
+</html>
